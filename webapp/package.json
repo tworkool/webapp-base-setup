@@ -1,0 +1,52 @@
+{
+  "name": "my-awesome-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "My awesome app",
+  "main": "src/index.js",
+  "authors": [],
+  "scripts": {
+    "start": "parcel src/index.html -p 3000",
+    "build": "parcel build src/index.html --public-url https://marsbased.github.io/my-awesome-app/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "postcss": {
+    "modules": false,
+    "plugins": {
+      "autoprefixer": {
+        "browsers": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "not ie < 9"
+        ],
+        "flexbox": "no-2009"
+      }
+    }
+  },
+  "dependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^8.5.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.8.2",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gh-pages": "^1.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "lint-staged": "^7.1.0",
+    "node-sass": "^4.9.0",
+    "parcel-bundler": "^1.8.1",
+    "parcel-plugin-bundle-visualiser": "^1.1.2"
+  }
+}
