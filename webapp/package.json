@@ -7,7 +7,7 @@
   "authors": [],
   "scripts": {
     "start": "parcel src/index.html -p 3000",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
