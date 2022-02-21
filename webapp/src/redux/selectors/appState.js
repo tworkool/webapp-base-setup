@@ -2,4 +2,8 @@ const getMessages = (state) => {
   return state.appState.messages;
 };
 
-export { getMessages };
+const getWeatherData = (state) => {
+  return state.appState.weatherData;
+};
+
+export { getMessages, getWeatherData };
