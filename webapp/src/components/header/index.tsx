@@ -15,9 +15,7 @@ const Header = (props: headerProps) => {
           return (
             <NavLink
               key={index}
-              exact
-              className="wbs-header__nav__item"
-              activeClassName="wbs-header__nav__item--selected"
+              className={({isActive}) => `wbs-header__nav__item ${isActive ? "wbs-header__nav__item--selected" : ""}`}
               to={link.to}
             >
               {link.label}

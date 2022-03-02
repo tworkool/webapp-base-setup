@@ -1,24 +1,35 @@
 import React, { Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import DatenschutzPage from "../../pages/datenschutz";
 import HomePage from "../../pages/home";
 import { CubeSpinner } from "../spinners";
 
 const PageManager = () => {
   return (
-    <Switch>
-      <Route exact path="/datenschutz">
-        <Suspense fallback={<CubeSpinner />}>
-          <DatenschutzPage />
-        </Suspense>
-      </Route>
-      <Route exact path="/">
-        <Suspense fallback={<CubeSpinner />}>
-          <HomePage />
-        </Suspense>
-      </Route>
-      <Redirect from="*" to="/" />
-    </Switch>
+    <>
+      <Routes>
+        <Route
+          path="/datenschutz"
+          element={
+            <Suspense fallback={<CubeSpinner />}>
+              <DatenschutzPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<CubeSpinner />}>
+              <HomePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={<Navigate to="/" replace/>}
+        />
+      </Routes>
+    </>
   );
 };
 
