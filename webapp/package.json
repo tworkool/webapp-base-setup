@@ -33,6 +33,7 @@
     "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.16.7",
     "autoprefixer": "^8.5.0",
     "babel-eslint": "^8.2.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
@@ -47,6 +48,7 @@
     "lint-staged": "^7.1.0",
     "parcel-bundler": "^1.8.1",
     "parcel-plugin-bundle-visualiser": "^1.1.2",
-    "sass": "^1.49.8"
+    "sass": "^1.49.8",
+    "typescript": "^4.6.2"
   }
 }
