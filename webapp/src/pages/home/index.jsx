@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { requestWeatherDataFetch } from "../../redux/actions/app_state";
 import { getWeatherData } from "../../redux/selectors/appState";
-import "./style";
+import "./style.scss";
 
 const HomePage = () => {
   const weatherData = useSelector(getWeatherData);

@@ -5,7 +5,7 @@ import Footer from "../../components/footer";
 import Header from "../../components/header";
 import NotificationManager from "../../components/notification_manager";
 import PageManager from "../../components/page_manager";
-import "./style";
+import "./style.scss";
 
 const App = () => {
   return (
