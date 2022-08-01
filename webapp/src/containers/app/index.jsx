@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "../../components/footer";
 import Header from "../../components/header";
 import PageManager from "../../components/page_manager";
-import "./style";
+import "./style.scss";
 
 const App = () => {
   return (

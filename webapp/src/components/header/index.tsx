@@ -1,6 +1,6 @@
 import * as React from "react";
 import { NavLink } from "react-router-dom";
-import "./style";
+import "./style.scss";
 
 type headerProps = {
   links: Array<{to: string, label: string}>
