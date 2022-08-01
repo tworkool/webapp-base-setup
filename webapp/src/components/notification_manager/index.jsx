@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { getMessages } from "../../redux/selectors/appState";
-import "./style";
+import "./style.scss";
 
 const NotificationManager = () => {
   const messages = useSelector(getMessages);
