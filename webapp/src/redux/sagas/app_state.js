@@ -1,15 +1,19 @@
-import { call, put, select, takeLatest } from "redux-saga/effects";
+import { call, put, takeLatest } from "redux-saga/effects";
 import {
   failWeatherDataFetch,
-  setMessages,
   succeedWeatherDataFetch,
 } from "../actions/app_state";
 import { WEATHER_DATA_FETCH_REQUESTED } from "../action_types/app_state";
-import { getMessages } from "../selectors/appState";
 import BACKEND from "./api/backend";
+import { showNotification, updateNotification } from "@mantine/notifications";
 
 function* fetchWeatherData(action) {
-  const oldMessages = yield select(getMessages);
+  showNotification({
+    id: "fetch_weather_data_notification",
+    title: "Loading Data",
+    message: "Loading Data",
+    loading: true,
+  });
   try {
     const response = yield call(
       BACKEND.sample_fetch,
@@ -20,25 +24,23 @@ function* fetchWeatherData(action) {
       const data = yield response.json();
 
       yield put(succeedWeatherDataFetch({ weatherData: data }));
-
-      const newMessage = {
-        level: "success",
+      updateNotification({
+        id: "fetch_weather_data_notification",
+        title: "FETCH SUCCESS",
         message: "FETCH SUCCESS",
-        id: new Date().getTime(),
-      };
-      yield put(setMessages({ messages: [...oldMessages, newMessage] }));
+        color: "green",
+      });
     } else {
       throw response;
     }
   } catch (e) {
     yield put(failWeatherDataFetch({ weatherData: {} }));
-
-    const newMessage = {
-      level: "error",
+    updateNotification({
+      id: "fetch_weather_data_notification",
+      title: "FETCH FAIL",
       message: "Could not fetch weather data",
-      id: new Date().getTime(),
-    };
-    yield put(setMessages({ messages: [...oldMessages, newMessage] }));
+      color: "red",
+    });
   }
 }
 
